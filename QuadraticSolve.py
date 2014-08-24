@@ -59,92 +59,105 @@ print("\n")
 #Checks to see if the 'a' coefficient is not 1, if the 'a' coefficient is  not 1 then the value
 #will be printed in front of x^2
 
-if float(a_val) != 1:
+if float(a_val) == 0:
+    print("This is not a quadratic equation")
+else:
+    if float(a_val) != 1:
 
-# Cases: a+ b+ c+  and a- b+ c+
+    # Cases: a+ b+ c+  and a- b+ c+
 
-# b and c terms get a plus sign
+    # b and c terms get a plus sign
 
-    if (float(b_val) > 0) & (float(c_val) > 0):
-        print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+        if (float(b_val) > 0) & (float(c_val) > 0):
 
-#Cases: a+ b+ c- and a- b+ c-
-
-# b term get a plus sign
-
-    if (float(b_val) > 0) & (float(c_val) < 0):
-        print("The solution to the quadratic equation " + a_val + "x^2 "
-              + "+ " + b_val + "x " + "- " + str(abs(float(c_val))) + " is: ")
-
-#Cases: a+ b- c+ and a- b- c+
-
-# c term get a plus sign
-
-    if (float(b_val) < 0) & (float(c_val) > 0):
-        print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "+ " + c_val + " is: ")
-
-#Cases: a+ b- c- and a- b- c-
-
-#neither b or c terms get a plus sign
-
-    if (float(b_val) < 0) & (float(c_val) < 0):
-        print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "- "
-              + str(abs(float(c_val))) + " is: ")
-
-#Checks to see if the 'a' coefficient is 1, if the 'a' coefficient is 1 then the value
-#will not be printed in front of x^2
-
-if float(a_val) == 1:
-
-    if (float(b_val) > 0) & (float(c_val) > 0):
-        print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+            print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
 
 #Cases: a+ b+ c- and a- b+ c-
 
 # b term get a plus sign
 
-    if (float(b_val) > 0) & (float(c_val) < 0):
-        print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + "- " + str(abs(float(c_val))) + " is: ")
+        if (float(b_val) > 0) & (float(c_val) < 0):
+            print("The solution to the quadratic equation " + a_val + "x^2 "
+                  + "+ " + b_val + "x " + "- " + str(abs(float(c_val))) + " is: ")
 
-#Cases: a+ b- c+ and a- b- c+
+    #Cases: a+ b- c+ and a- b- c+
 
-# c term get a plus sign
+    # c term get a plus sign
 
-    if (float(b_val) < 0) & (float(c_val) > 0):
-        print("The solution to the quadratic equation " + "x^2 " "- " + str(abs(float(b_val))) + "x " + "+"
-              + c_val + " is: ")
+        if (float(b_val) < 0) & (float(c_val) > 0):
+            print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "+ " + c_val + " is: ")
 
-#Cases: a+ b- c- and a- b- c-
+    #Cases: a+ b- c- and a- b- c-
 
-#neither b or c terms get a plus sign
+    #neither b or c terms get a plus sign
 
-    if (float(b_val) < 0) & (float(c_val) < 0):
-        print("The solution to the quadratic equation " + "x^2 " "- " + str(abs(float(b_val))) + "x " + "- "
-              + str(abs(float(c_val))) + " is: ")
+        if (float(b_val) < 0) & (float(c_val) < 0):
+            print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "- "
+                  + str(abs(float(c_val))) + " is: ")
+
+    #Checks to see if the 'a' coefficient is 1, if the 'a' coefficient is 1 then the value
+    #will not be printed in front of x^2
+
+    if float(a_val) == 1:
+
+        if (float(b_val) > 0) & (float(c_val) > 0):
+            print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+
+    #Cases: a+ b+ c- and a- b+ c-
+
+    # b term get a plus sign
+
+        if (float(b_val) > 0) & (float(c_val) < 0):
+            print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + "- " + str(abs(float(c_val))) + " is: ")
+
+    #Cases: a+ b- c+ and a- b- c+
+
+    # c term get a plus sign
+
+        if (float(b_val) < 0) & (float(c_val) > 0):
+           print("The solution to the quadratic equation " + "x^2 " "- " + str(abs(float(b_val))) + "x " + "+"
+                  + c_val + " is: ")
+
+    #Cases: a+ b- c- and a- b- c-
+
+    #neither b or c terms get a plus sign
+
+        if (float(b_val) < 0) & (float(c_val) < 0):
+            print("The solution to the quadratic equation " + "x^2 " "- " + str(abs(float(b_val))) + "x " + "- "
+                  + str(abs(float(c_val))) + " is: ")
 
 
-root1 = quad_formula(float(a_val), float(b_val), float(c_val))[0]
+    root1 = quad_formula(float(a_val), float(b_val), float(c_val))[0]
 
-#checks to see if there is more than one distinct root
-if len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
-    root2 = quad_formula(float(a_val),float(b_val), float(c_val))[1]
+    #checks to see if there is more than one distinct root
+    if len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
+        root2 = quad_formula(float(a_val),float(b_val), float(c_val))[1]
 
-#If there is only one distinct root (a repeated root), then only print the one root that exists in the root list
-if len(quad_formula(float(a_val),float(b_val), float(c_val))) == 1:
-    print("x = " + str(root1) + " (with multiplicity 2)")
+    #If there is only one distinct root (a repeated root), then only print the one root that exists in the root list
+    if len(quad_formula(float(a_val),float(b_val), float(c_val))) == 1:
+        print("x = " + str(root1) + " (with multiplicity 2)")
 
-elif len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
-    print("x1 = " + str(root1) + " and " + "x2 = " + str(root2))
-
-
+    elif len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
+        print("x1 = " + str(root1) + " and " + "x2 = " + str(root2))
 
 
+class Quadratic:
+    """ This class provides a framework for creating a quadratic equation
+    """
+a = 0
+b = 0
+c = 0
 
-#if float(c_val) > 0:
-    #print("The solution to the quadratic equation " + a_val + "x^2 " + "+" + b_val + "x " + "+" + c_val + " is: ")
+second_derivative = 2*a
 
-#if float(c_val) < 0:
-     #print("The solution to the quadratic equation " + a_val + "x^2 " + "+" + b_val + "x " + c_val + " is: ")
+def __init__(self,a, b, c):
+    """(Quadratic, a coefficient, b coefficient, c coefficient)"""
+
+    self.a = a
+    self.b = b
+    self.c = c
 
 
-#print(quad_formula(float(a_val),float(b_val),float(c_val)))
+
+
+
