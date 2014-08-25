@@ -46,8 +46,6 @@ def is_concave_up(a_coefficient):
     else:
         return False
 
-#def quad_max_or_min(a,b,c):
-
 
 a_val = raw_input("Enter a value for the a coefficient: ")
 
@@ -59,73 +57,223 @@ print("\n")
 #Checks to see if the 'a' coefficient is not 1, if the 'a' coefficient is  not 1 then the value
 #will be printed in front of x^2
 
+#First Check that if the value of the a coefficient is set equal to zero
+
+#consider the cases where a = 1 and a = -1  and also when b = 1 and b = -1
+
 if float(a_val) == 0:
     print("This is not a quadratic equation")
+
+#If the a coefficient is non-zero, continue with the program
 else:
-    if float(a_val) != 1:
+    if (float(a_val) != 1) & (float(a_val) != -1):  # The cases when a = 1 or a = -1 are dealt with separately
 
-    # Cases: a+ b+ c+  and a- b+ c+
+#if b and c are both positive
+        if (float(b_val) > 0) & (float(c_val) > 0): # b > 0 and c > 0 (b+ and c+) - Case # 1
+            if float(b_val) == 1: # if b value is 1 don't print the 1
+                print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + "x " + "+ " + c_val + " is: ")
+            else:
+                print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+# b is negative
 
-    # b and c terms get a plus sign
+        if float(b_val) < 0:
 
-        if (float(b_val) > 0) & (float(c_val) > 0):
+            if float(c_val) == 0:  # b < 0 and c = 0  (b- and c = 0) - Case # 2
+                if float(b_val) == -1:
+                    print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + "x " + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + " is: ")
 
-            print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+            elif float(c_val) > 0:  # b < 0 and c > 0 ( b- and c+) - Case # 3
+                if float(b_val) == -1:
+                    print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + "x " + " + " + c_val + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + " + " + c_val + " is: ")
 
-#Cases: a+ b+ c- and a- b+ c-
+# c is negative
 
-# b term get a plus sign
+        if float(c_val) < 0:
 
-        if (float(b_val) > 0) & (float(c_val) < 0):
-            print("The solution to the quadratic equation " + a_val + "x^2 "
-                  + "+ " + b_val + "x " + "- " + str(abs(float(c_val))) + " is: ")
+            if float(b_val) == 0:  # b = 0 and c < 0 (c- and b = 0) - Case # 4
+                print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(c_val))) + " is: ")
 
-    #Cases: a+ b- c+ and a- b- c+
+            elif float(b_val) > 0:  # b > 0 and c < 0 ( c- and b+) - Case # 5
+                if float(b_val) == 1:
+                    print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + "x " + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + b_val + "x " + " is: ")
 
-    # c term get a plus sign
+# if b and c are both negative
+        if (float(b_val) < 0) & (float(c_val) < 0):  # b < 0 and c < 0 (b- and c-) - Case #6
+            if float(b_val) == -1:
+                print("The solution to the quadratic equation " + a_val + "x^2 " + "-x " + "- " + str(abs(float(c_val))) + " is: ")
+            else:
+                print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "- " + str(abs(float(c_val))) + " is: ")
 
-        if (float(b_val) < 0) & (float(c_val) > 0):
-            print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "+ " + c_val + " is: ")
+ #if b > 0 and c = 0 (b+ and c = 0)
+        if float(b_val) > 0:
 
-    #Cases: a+ b- c- and a- b- c-
+            if float(c_val) == 0:  # b > 0 and c = 0 (b+ and c = 0) - Case #7
+                if float(b_val) == 1:
+                    print("The solution to the quadratic equation " + a_val + "x^2" + "x " + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + a_val + "x^2" + "+ " + b_val + "x " + " is: ")
 
-    #neither b or c terms get a plus sign
+ #if b = 0 and c > 0
 
-        if (float(b_val) < 0) & (float(c_val) < 0):
-            print("The solution to the quadratic equation " + a_val + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "- "
-                  + str(abs(float(c_val))) + " is: ")
+        if float(c_val) > 0:
+
+            if float(b_val) == 0:  # b = 0 and c > 0 (b = 0 and c+) - Case #8
+                print("The solution to the quadratic equation " + a_val + "x^2 " + "+ " + c_val + " is: ")
+
+ #if b = 0 and c = 0
+        if (float(b_val) == 0) & (float(c_val) == 0): # b = 0 and c = 0  - Case #9
+            print("The solution to the quadratic equation " + a_val + "x^2" + " is: ")
 
     #Checks to see if the 'a' coefficient is 1, if the 'a' coefficient is 1 then the value
     #will not be printed in front of x^2
 
-    if float(a_val) == 1:
+    elif float(a_val) == -1:  # When a = -1
 
-        if (float(b_val) > 0) & (float(c_val) > 0):
-            print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+        #if b and c are both positive
+        if (float(b_val) > 0) & (float(c_val) > 0):  # b > 0 and c > 0 (b+ and c+) - Case # 1
 
-    #Cases: a+ b+ c- and a- b+ c-
+            if float(b_val) == 1:
+                print("The solution to the quadratic equation " + "-x^2 " + "+ " + "x " + "+ " + c_val + " is: ")
 
-    # b term get a plus sign
+            else:
 
-        if (float(b_val) > 0) & (float(c_val) < 0):
-            print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + "- " + str(abs(float(c_val))) + " is: ")
+                print("The solution to the quadratic equation " + "-x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+# b is negative
 
-    #Cases: a+ b- c+ and a- b- c+
+        if float(b_val) < 0:
 
-    # c term get a plus sign
+            if float(c_val) == 0:  # b < 0 and c = 0  (b- and c = 0) - Case # 2
 
-        if (float(b_val) < 0) & (float(c_val) > 0):
-           print("The solution to the quadratic equation " + "x^2 " "- " + str(abs(float(b_val))) + "x " + "+"
-                  + c_val + " is: ")
+                if float(b_val) == -1:
+                    print("The solution to the quadratic equation " + "-x^2 " + "-x " + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + "-x^2 " + "- " + str(abs(float(b_val))) + "x " + " is: ")
 
-    #Cases: a+ b- c- and a- b- c-
+            elif float(c_val) > 0:  # b < 0 and c > 0 ( b- and c+) - Case # 3
+                if float(b_val) == -1:
+                    print("The solution to the quadratic equation " + "-x^2 " + "-x " + " + " + c_val + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + "-x^2 " + "- " + str(abs(float(b_val))) + "x " + " + " + c_val + " is: ")
 
-    #neither b or c terms get a plus sign
+# c is negative
 
-        if (float(b_val) < 0) & (float(c_val) < 0):
-            print("The solution to the quadratic equation " + "x^2 " "- " + str(abs(float(b_val))) + "x " + "- "
-                  + str(abs(float(c_val))) + " is: ")
+        if float(c_val) < 0:
 
+            if float(b_val) == 0:  # b = 0 and c < 0 (c- and b = 0) - Case # 4
+                print("The solution to the quadratic equation " + "-x^2 " + "- " + str(abs(float(c_val))) + " is: ")
+
+            elif float(b_val) > 0:  # b > 0 and c < 0 ( c- and b+) - Case # 5
+
+                if float(b_val) == 1:
+                    print("The solution to the quadratic equation " + "-x^2 " + "+ " + "x " + " is: ")
+
+                else:
+                    print("The solution to the quadratic equation " + "-x^2 " + "+ " + b_val + "x " + " is: ")
+
+# if b and c are both negative
+        if (float(b_val) < 0) & (float(c_val) < 0):  # b < 0 and c < 0 (b- and c-) - Case #6
+
+            if float(b_val) == -1:
+                print("The solution to the quadratic equation " + "-x^2 " + "-x " + "- " + str(abs(float(c_val))) + " is: ")
+
+            else:
+                print("The solution to the quadratic equation " + "-x^2 " + "- " + str(abs(float(b_val))) + "x " + "- " + str(abs(float(c_val))) + " is: ")
+
+ #if b > 0 and c = 0
+        if float(b_val) > 0:
+
+            if float(c_val) == 0:  # b > 0 and c = 0 (b+ and c = 0) - Case #7
+                if float(b_val) == 1:
+                    print("The solution to the quadratic equation " + "-x^2" + "+ " + "x " + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + "-x^2" + "+ " + b_val + "x " + " is: ")
+
+ #if b = 0 and c > 0
+
+        if float(c_val) > 0:
+
+            if float(b_val) == 0:  # b = 0 and c > 0 (b = 0 and c+) - Case #8
+                print("The solution to the quadratic equation " + "-x^2 " + "+ " + c_val + " is: ")
+
+ #if b = 0 and c = 0
+        if (float(b_val) == 0) & (float(c_val) == 0): # b = 0 and c = 0  - Case #9
+            print("The solution to the quadratic equation " + "-x^2" + " is: ")
+
+    elif float(a_val) == 1:
+
+            #if b and c are both positive
+            if (float(b_val) > 0) & (float(c_val) > 0):  # b > 0 and c > 0 (b+ and c+) - Case # 1
+
+                if float(b_val) == 1:
+                    print("The solution to the quadratic equation " + "x^2 " + "+ " + "x " + "+ " + c_val + " is: ")
+                else:
+                    print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + "+ " + c_val + " is: ")
+        # b is negative
+
+            if float(b_val) < 0:
+
+                if float(c_val) == 0:  # b < 0 and c = 0  (b- and c = 0) - Case # 2
+
+                    if float(b_val) == -1:
+                        print("The solution to the quadratic equation " + "x^2 " + "-x " + " is: ")
+                    else:
+                        print("The solution to the quadratic equation " + "x^2 " + "- " + str(abs(float(b_val))) + "x " + " is: ")
+
+                elif float(c_val) > 0:  # b < 0 and c > 0 ( b- and c+) - Case # 3
+
+                    if float(b_val) == -1:
+                        print("The solution to the quadratic equation " + "x^2 " + "-x " + " + " + c_val + " is: ")
+
+                    else:
+                        print("The solution to the quadratic equation " + "x^2 " + "- " + str(abs(float(b_val))) + "x " + " + " + c_val + " is: ")
+
+        # c is negative
+
+            if float(c_val) < 0:
+
+                if float(b_val) == 0:  # b = 0 and c < 0 (c- and b = 0) - Case # 4
+                    print("The solution to the quadratic equation " + "x^2 " + "- " + str(abs(float(c_val))) + " is: ")
+
+                elif float(b_val) > 0:  # b > 0 and c < 0 ( c- and b+) - Case # 5
+                    if float(b_val) == 1:
+                        print("The solution to the quadratic equation " + "x^2 " + "+ " + "x " + " is: ")
+                    else:
+                        print("The solution to the quadratic equation " + "x^2 " + "+ " + b_val + "x " + " is: ")
+
+             # if b and c are both negative
+                    if (float(b_val) < 0) & (float(c_val) < 0):  # b < 0 and c < 0 (b- and c-) - Case #6
+
+                        if float(b_val) == -1:
+                            print("The solution to the quadratic equation "  + "x^2 " + "-x " + "- " + str(abs(float(c_val))) + " is: ")
+                        else:
+                            print("The solution to the quadratic equation "  + "x^2 " + "- " + str(abs(float(b_val))) + "x " + "- " + str(abs(float(c_val))) + " is: ")
+
+             #if b > 0 and c = 0
+            if float(b_val) > 0:
+
+                if float(c_val) == 0:  # b > 0 and c = 0 (b+ and c = 0) - Case #7
+
+                    if float(b_val) == 1:
+                        print("The solution to the quadratic equation " + "x^2" + "+ " + "x " + " is: ")
+                    else:
+                        print("The solution to the quadratic equation " + "x^2" + "+ " + b_val + "x " + " is: ")
+
+        #if b = 0 and c > 0
+
+            if float(c_val) > 0:
+
+                if float(b_val) == 0:  # b = 0 and c > 0 (b = 0 and c+) - Case #8
+                    print("The solution to the quadratic equation " + "x^2 " + "+ " + c_val + " is: ")
+
+         #if b = 0 and c = 0
+            if (float(b_val) == 0) & (float(c_val) == 0): # b = 0 and c = 0  - Case #9
+                print("The solution to the quadratic equation " + "x^2" + " is: ")
 
     root1 = quad_formula(float(a_val), float(b_val), float(c_val))[0]
 
