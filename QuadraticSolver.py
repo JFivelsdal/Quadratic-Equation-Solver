@@ -19,6 +19,12 @@ print("\n")
 
 qs.y_intercept(a_value,b_value,c_value)
 
+print("\n")
+
+qs.print_min_or_max(float(a_value),float(b_value),float(c_value))
+
+
+qs.print_vertex(a_value,b_value,c_value)
 #Test Cases
 
 
