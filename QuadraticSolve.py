@@ -12,28 +12,35 @@ def quad_formula(a, b, c):
 
     roots = []
 
-    axis_sym = -b/(2*a)  # axis of symmetry: the x-value of the vertex of the parabola represented by the quadratic
+    if(a == 0):
+
+        return list('')
+
+    else:
+
+        axis_sym = -b/(2*a)  # axis of symmetry: the x-value of the vertex of the parabola represented by the quadratic
                         # and is a term in the quadratic formula
 
-    discriminant = (b**2) - (4*a*c) # b^2 - 4ac is the discriminant and is a term that is part of the quadratic formula
+        discriminant = (b**2) - (4*a*c) # b^2 - 4ac is the discriminant and is a term that is part of the quadratic formula
 
     #Use the real number square root if the discriminant is positive
-    if discriminant > 0:
-        first_root = axis_sym + r_sqrt(discriminant)/(2*a)
-        second_root = axis_sym - r_sqrt(discriminant)/(2*a)
+        if discriminant > 0:
+            first_root = axis_sym + r_sqrt(discriminant)/(2*a)
+            second_root = axis_sym - r_sqrt(discriminant)/(2*a)
 
     #If the discriminant is zero, there is only one distinct real root and so only one root needs to be calculated
-    elif discriminant == 0:
-        first_root = axis_sym + r_sqrt(discriminant)/(2*a)
+        elif discriminant == 0:
+            first_root = axis_sym + r_sqrt(discriminant)/(2*a)
 
     #If the discriminant is negative, use the complex number version of the square root function
-    elif discriminant < 0:
-        first_root = axis_sym + c_sqrt(discriminant)/(2*a)
-        second_root = axis_sym - c_sqrt(discriminant)/(2*a)
+        elif discriminant < 0:
+            first_root = axis_sym + c_sqrt(discriminant)/(2*a)
+            second_root = axis_sym - c_sqrt(discriminant)/(2*a)
 
-    roots.append(first_root)
-    if discriminant != 0:
-        roots.append(second_root)
+        roots.append(first_root)
+
+        if discriminant != 0:
+            roots.append(second_root)
 
     #roots.sort() #sort the roots by smallest to largest
 
@@ -45,6 +52,41 @@ def is_concave_up(a_coefficient):
         return True
     else:
         return False
+
+
+def evaluate_quadratic(a, b, c, x):
+
+    quad_result = a*(x**2) + b*x + c
+
+    return quad_result
+
+def y_intercept(a, b, c):
+
+    if float(a) != 0:
+
+        y_int = evaluate_quadratic(a, b, c, 0)
+
+        print("The y intercept occurs at " + "(" + "0" + "," + y_int + ")")
+
+    else:
+        print("")
+
+
+
+
+
+
+#def print_max_or_min(a_val):
+
+   # if is_concave_up(a_val):
+
+
+
+
+
+
+
+
 
 
 #a_value = raw_input("Enter a value for the a coefficient: ")
@@ -66,6 +108,7 @@ def print_quadratic(a_val, b_val, c_val):
 
     if float(a_val) == 0:
         print("This is not a quadratic equation")
+
 
 #If the a coefficient is non-zero, continue with the program
     else:
@@ -154,13 +197,13 @@ def print_quadratic(a_val, b_val, c_val):
                 if float(c_val) == 0:  # b < 0 and c = 0  (b- and c = 0) - Case # 2
 
                     if float(b_val) == -1:
-                        print("The solution to the quadratic equation " + "-x^2 " + "- " "x " + " is: ")
+                        print("The solution to the quadratic equation " + "-x^2 " + "-x " + " is: ")
                     else:
                         print("The solution to the quadratic equation " + "-x^2 " + "- " + str(abs(float(b_val))) + "x " + " is: ")
 
                 elif float(c_val) > 0:  # b < 0 and c > 0 ( b- and c+) - Case # 3
                     if float(b_val) == -1:
-                        print("The solution to the quadratic equation " + "-x^2 " + "- " + "x " + "+ " + c_val + " is: ")
+                        print("The solution to the quadratic equation " + "-x^2 " + "-x " + " + " + c_val + " is: ")
                     else:
                         print("The solution to the quadratic equation " + "-x^2 " + "- " + str(abs(float(b_val))) + "x " + " + " + c_val + " is: ")
 
@@ -283,26 +326,35 @@ def print_quadratic(a_val, b_val, c_val):
 
 def print_quad_roots(a_val, b_val, c_val):
 
-    root1 = quad_formula(float(a_val), float(b_val), float(c_val))[0]
+
+
+        if len(quad_formula(float(a_val),float(b_val), float(c_val))) > 0:
+            root1 = quad_formula(float(a_val), float(b_val), float(c_val))[0]
 
     #checks to see if there is more than one distinct root
-    if len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
-        root2 = quad_formula(float(a_val),float(b_val), float(c_val))[1]
+        if len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
+            root2 = quad_formula(float(a_val),float(b_val), float(c_val))[1]
 
 
     #If there is only one distinct root (a repeated root), then only print the one root that exists in the root list
-    if len(quad_formula(float(a_val),float(b_val), float(c_val))) == 1:
-        print("x = " + str(root1) + " (with multiplicity 2)")
+        if len(quad_formula(float(a_val),float(b_val), float(c_val))) == 1:
+            print("x = " + str(root1) + " (with multiplicity 2)")
 
-    elif len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
-        print("x1 = " + str(root1) + " and " + "x2 = " + str(root2))
+        elif len(quad_formula(float(a_val),float(b_val), float(c_val))) > 1:
+            print("x1 = " + str(root1) + " and " + "x2 = " + str(root2))
+
+        elif len(quad_formula(float(a_val),float(b_val), float(c_val))) == 0:
+            print("")
+
+
+
 
 #print_quadratic(a_value, b_value, c_value)  # prints the quadratic based on the input provided earlier
 
 #print_quad_roots(a_value, b_value, c_value)
 
 
-        
+
 # Cases where b is positive and c is non-negative
 
 #print_quadratic("1","2","1") # tests b+ c+   where a = 1, b != 1 and b != -1

@@ -15,7 +15,9 @@ qs.print_quadratic(a_value, b_value, c_value)  # prints the quadratic based on t
 
 qs.print_quad_roots(a_value, b_value, c_value) # prints the roots from that solve the corresponding quadratic
 
+print("\n")
 
+qs.y_intercept(a_value,b_value,c_value)
 
 #Test Cases
 
@@ -194,14 +196,14 @@ qs.print_quad_roots(a_value, b_value, c_value) # prints the roots from that solv
 
 # qs.print_quadratic("-1", "2", "-3")
 
-## Result: The solution to the quadratic equation -x^2 + 2x  is:  (wrong output) [c term missing] (fixed)
+## Result: The solution to the quadratic equation -x^2 + 2x  is:  (wrong output) [c term missing]
 
 
 # b = 1, c -
 
 # qs.print_quadratic("-1", "1", "-3")
 
-## Result: The solution to the quadratic equation -x^2 + x  is: (wrong output) [c term missing] (fixed)
+## Result: The solution to the quadratic equation -x^2 + x  is: (wrong output) [c term missing]
 
 #b+, c = 0
 
@@ -236,7 +238,7 @@ qs.print_quad_roots(a_value, b_value, c_value) # prints the roots from that solv
 
 # qs.print_quadratic("-1", "-1", "3")
 
-## Result: The solution to the quadratic equation -x^2 -x  + 3 is:   (weird spacing, probably replace negative sign with minus sign) (fixed)
+## Result: The solution to the quadratic equation -x^2 -x  + 3 is:   (weird spacing, probably replace negative sign with minus sign)
 
 #b-, c- and c = 0
 
@@ -264,7 +266,7 @@ qs.print_quad_roots(a_value, b_value, c_value) # prints the roots from that solv
 
 # qs.print_quadratic("-1", "-1", "0")
 
-## Result: The solution to the quadratic equation -x^2 -x  is:  (Weird spacing again and replace negative sign with minus sign) (fixed)
+## Result: The solution to the quadratic equation -x^2 -x  is:  (Weird spacing again and replace negative sign with minus sign)
 
 ###########################################
 
