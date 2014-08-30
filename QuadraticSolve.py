@@ -15,6 +15,23 @@ def evaluate_quadratic(a, b, c, x):
     return quad_result
 
 
+def get_second_derivative(a):
+    return 2*float(a)
+
+
+def print_first_derivative(a, b):
+
+    sec_der = get_second_derivative(a)
+
+    print("The first derivative of the quadratic is " + str(sec_der)  + "x" + " " "+" + " " + b)
+
+
+def print_second_derivative(a):
+
+    print("The second derivative of the quadratic is " + str(get_second_derivative(a)))
+
+
+
 def get_axis_of_symmetry(a, b):
 
     if float(a) != 0:
@@ -60,7 +77,8 @@ def print_min_or_max(a, b, c):
 
         print("The maximum value that the quadratic achieves is" + " " + str(vertex[1]))
 
-def print_vertex(a,b,c):
+
+def print_vertex(a, b, c):
 
     print("The vertex of the corresponding parabola is " + " " + str(get_vertex(float(a),float(b),float(c))))
 
@@ -120,40 +138,6 @@ def y_intercept(a, b, c):
     else:
         print("")
 
-
-
-#def max_or_min_location:
-
-
-
-
-#def print_max_or_min(a_val):
-
-  # if is_concave_up(a_val):
-
-
-
-
-
-
-
-
-
-
-#a_value = raw_input("Enter a value for the a coefficient: ")
-
-#b_value = raw_input("Enter a value for the b coefficient: ")
-
-#c_value = raw_input("Enter a value for the c coefficient: ")
-
-#print("\n")
-
-#Checks to see if the 'a' coefficient is not 1, if the 'a' coefficient is  not 1 then the value
-#will be printed in front of x^2
-
-#First Check that if the value of the a coefficient is set equal to zero
-
-#consider the cases where a = 1 and a = -1  and also when b = 1 and b = -1
 
 def print_quadratic(a_val, b_val, c_val):
 
