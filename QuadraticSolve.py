@@ -83,10 +83,76 @@ def print_vertex(a, b, c):
     print("The vertex of the corresponding parabola is " + " " + str(get_vertex(float(a),float(b),float(c))))
 
 
+def sum_of_roots(a, b, c):
+
+    if b**2 - 4*a*c > 0:
+        return -b / a
+
+    elif b**2 - 4*a*c == 0:
+        return -b / a
+
+    else:
+        pass
 
 
+def product_of_roots(a, b, c):
+
+    if b**2 - 4*a*c > 0:
+        return c / a
+
+    elif b**2 - 4*a*c == 0:
+        return c / a
+
+    else:
+        pass
 
 
+def print_sum_of_roots(a, b, c):
+
+    if b**2 - 4*a*c > 0:
+        sum_rts = sum_of_roots(a, b, c)
+        print("The sum of the roots are: " + str(sum_rts))
+
+    elif b**2 - 4*a*c == 0:
+        sum_rts = sum_of_roots(a, b, c)
+        print("The sum of the roots are: " + str(sum_rts))
+
+    else:
+        pass
+
+
+def print_prod_of_roots(a, b, c):
+
+    if b**2 - 4*a*c > 0:
+        prod_rts = product_of_roots(a, b, c)
+        print("The product of the roots are: " + str(prod_rts))
+
+    elif b**2 - 4*a*c == 0:
+        prod_rts = product_of_roots(a, b, c)
+        print("The product of the roots are: " + str(prod_rts))
+
+    else:
+        pass
+
+
+def print_sum_and_prod_roots(a, b, c):
+
+    if b**2 - 4*a*c > 0:
+
+        print("\n")
+        print("Sum and Product of Roots")
+        print_sum_of_roots(a, b, c)
+        print_prod_of_roots(a, b, c)
+
+    elif b**2 - 4*a*c == 0:
+
+        print("\n")
+        print("Sum and Product of Roots")
+        print_sum_of_roots(a, b, c)
+        print_prod_of_roots(a, b, c)
+
+    else:
+        pass
 
 
 def quad_formula(a, b, c):
